@@ -1,0 +1,25 @@
+[tools]
+go = "1.26.4"
+buf = "1.71.0"
+"go:google.golang.org/protobuf/cmd/protoc-gen-go" = { version = "1.36.11" }
+
+[tasks.bufbuild]
+description = "Build all of the proto files"
+run = [
+    "buf generate --template protago/protos/buf.gen.yaml"
+]
+
+[tasks.build]
+description = "Build the Go source code"
+depends = [
+    "bufbuild",
+]
+run = [
+    "go fmt ./...",
+    "go build ./...",
+    "go vet -composites=false ./...",
+]
+
+[tasks.test]
+description = "Run unit tests"
+run = "go test ./..."
