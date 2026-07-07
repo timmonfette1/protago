@@ -1,0 +1,15 @@
+edition = "2024";
+
+package timmonfette1.protago.annotations.v1;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/timmonfette1/protago/gen/proto/annotations/v1;annotations";
+
+message BsonFieldOptions {
+    string field_name = 1;
+}
+
+extend google.protobuf.FieldOptions {
+    BsonFieldOptions bson = 80080;
+}
