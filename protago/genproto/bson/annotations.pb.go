@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: bson/v1/annotations.proto
+// source: bson/annotations.proto
 
 package bson
 
@@ -32,7 +32,7 @@ type BsonFieldOptions struct {
 
 func (x *BsonFieldOptions) Reset() {
 	*x = BsonFieldOptions{}
-	mi := &file_bson_v1_annotations_proto_msgTypes[0]
+	mi := &file_bson_annotations_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *BsonFieldOptions) String() string {
 func (*BsonFieldOptions) ProtoMessage() {}
 
 func (x *BsonFieldOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_bson_v1_annotations_proto_msgTypes[0]
+	mi := &file_bson_annotations_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -99,41 +99,41 @@ func (b0 BsonFieldOptions_builder) Build() *BsonFieldOptions {
 	return m0
 }
 
-var file_bson_v1_annotations_proto_extTypes = []protoimpl.ExtensionInfo{
+var file_bson_annotations_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
 		ExtensionType: (*BsonFieldOptions)(nil),
-		Field:         80080,
-		Name:          "timmonfette1.protago.bson.v1.bson",
-		Tag:           "bytes,80080,opt,name=bson",
-		Filename:      "bson/v1/annotations.proto",
+		Field:         80000080,
+		Name:          "timmonfette1.protago.bson.bson",
+		Tag:           "bytes,80000080,opt,name=bson",
+		Filename:      "bson/annotations.proto",
 	},
 }
 
 // Extension fields to descriptorpb.FieldOptions.
 var (
-	// optional timmonfette1.protago.bson.v1.BsonFieldOptions bson = 80080;
-	E_Bson = &file_bson_v1_annotations_proto_extTypes[0]
+	// optional timmonfette1.protago.bson.BsonFieldOptions bson = 80000080;
+	E_Bson = &file_bson_annotations_proto_extTypes[0]
 )
 
-var File_bson_v1_annotations_proto protoreflect.FileDescriptor
+var File_bson_annotations_proto protoreflect.FileDescriptor
 
-const file_bson_v1_annotations_proto_rawDesc = "" +
+const file_bson_annotations_proto_rawDesc = "" +
 	"\n" +
-	"\x19bson/v1/annotations.proto\x12\x1ctimmonfette1.protago.bson.v1\x1a google/protobuf/descriptor.proto\"1\n" +
+	"\x16bson/annotations.proto\x12\x19timmonfette1.protago.bson\x1a google/protobuf/descriptor.proto\"1\n" +
 	"\x10BsonFieldOptions\x12\x1d\n" +
 	"\n" +
-	"field_name\x18\x01 \x01(\tR\tfieldName:c\n" +
-	"\x04bson\x12\x1d.google.protobuf.FieldOptions\x18\xd0\xf1\x04 \x01(\v2..timmonfette1.protago.bson.v1.BsonFieldOptionsR\x04bsonB8Z6github.com/timmonfette1/protago/gen/proto/bson/v1;bsonb\beditionsp\xe9\a"
+	"field_name\x18\x01 \x01(\tR\tfieldName:a\n" +
+	"\x04bson\x12\x1d.google.protobuf.FieldOptions\x18\xd0\xe8\x92& \x01(\v2+.timmonfette1.protago.bson.BsonFieldOptionsR\x04bsonB4Z2github.com/timmonfette1/protago/genproto/bson;bsonb\beditionsp\xe9\a"
 
-var file_bson_v1_annotations_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_bson_v1_annotations_proto_goTypes = []any{
-	(*BsonFieldOptions)(nil),          // 0: timmonfette1.protago.bson.v1.BsonFieldOptions
+var file_bson_annotations_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_bson_annotations_proto_goTypes = []any{
+	(*BsonFieldOptions)(nil),          // 0: timmonfette1.protago.bson.BsonFieldOptions
 	(*descriptorpb.FieldOptions)(nil), // 1: google.protobuf.FieldOptions
 }
-var file_bson_v1_annotations_proto_depIdxs = []int32{
-	1, // 0: timmonfette1.protago.bson.v1.bson:extendee -> google.protobuf.FieldOptions
-	0, // 1: timmonfette1.protago.bson.v1.bson:type_name -> timmonfette1.protago.bson.v1.BsonFieldOptions
+var file_bson_annotations_proto_depIdxs = []int32{
+	1, // 0: timmonfette1.protago.bson.bson:extendee -> google.protobuf.FieldOptions
+	0, // 1: timmonfette1.protago.bson.bson:type_name -> timmonfette1.protago.bson.BsonFieldOptions
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	1, // [1:2] is the sub-list for extension type_name
@@ -141,27 +141,27 @@ var file_bson_v1_annotations_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_bson_v1_annotations_proto_init() }
-func file_bson_v1_annotations_proto_init() {
-	if File_bson_v1_annotations_proto != nil {
+func init() { file_bson_annotations_proto_init() }
+func file_bson_annotations_proto_init() {
+	if File_bson_annotations_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bson_v1_annotations_proto_rawDesc), len(file_bson_v1_annotations_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bson_annotations_proto_rawDesc), len(file_bson_annotations_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 1,
 			NumServices:   0,
 		},
-		GoTypes:           file_bson_v1_annotations_proto_goTypes,
-		DependencyIndexes: file_bson_v1_annotations_proto_depIdxs,
-		MessageInfos:      file_bson_v1_annotations_proto_msgTypes,
-		ExtensionInfos:    file_bson_v1_annotations_proto_extTypes,
+		GoTypes:           file_bson_annotations_proto_goTypes,
+		DependencyIndexes: file_bson_annotations_proto_depIdxs,
+		MessageInfos:      file_bson_annotations_proto_msgTypes,
+		ExtensionInfos:    file_bson_annotations_proto_extTypes,
 	}.Build()
-	File_bson_v1_annotations_proto = out.File
-	file_bson_v1_annotations_proto_goTypes = nil
-	file_bson_v1_annotations_proto_depIdxs = nil
+	File_bson_annotations_proto = out.File
+	file_bson_annotations_proto_goTypes = nil
+	file_bson_annotations_proto_depIdxs = nil
 }

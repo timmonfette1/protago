@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: validate/v1/annotations.proto
+// source: validate/annotations.proto
 
 package validate
 
@@ -32,7 +32,7 @@ type ValidateFieldOptions struct {
 
 func (x *ValidateFieldOptions) Reset() {
 	*x = ValidateFieldOptions{}
-	mi := &file_validate_v1_annotations_proto_msgTypes[0]
+	mi := &file_validate_annotations_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *ValidateFieldOptions) String() string {
 func (*ValidateFieldOptions) ProtoMessage() {}
 
 func (x *ValidateFieldOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_validate_v1_annotations_proto_msgTypes[0]
+	mi := &file_validate_annotations_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -99,40 +99,40 @@ func (b0 ValidateFieldOptions_builder) Build() *ValidateFieldOptions {
 	return m0
 }
 
-var file_validate_v1_annotations_proto_extTypes = []protoimpl.ExtensionInfo{
+var file_validate_annotations_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
 		ExtensionType: (*ValidateFieldOptions)(nil),
-		Field:         80081,
-		Name:          "timmonfette1.protago.validate.v1.validate",
-		Tag:           "bytes,80081,opt,name=validate",
-		Filename:      "validate/v1/annotations.proto",
+		Field:         80000081,
+		Name:          "timmonfette1.protago.validate.validate",
+		Tag:           "bytes,80000081,opt,name=validate",
+		Filename:      "validate/annotations.proto",
 	},
 }
 
 // Extension fields to descriptorpb.FieldOptions.
 var (
-	// optional timmonfette1.protago.validate.v1.ValidateFieldOptions validate = 80081;
-	E_Validate = &file_validate_v1_annotations_proto_extTypes[0]
+	// optional timmonfette1.protago.validate.ValidateFieldOptions validate = 80000081;
+	E_Validate = &file_validate_annotations_proto_extTypes[0]
 )
 
-var File_validate_v1_annotations_proto protoreflect.FileDescriptor
+var File_validate_annotations_proto protoreflect.FileDescriptor
 
-const file_validate_v1_annotations_proto_rawDesc = "" +
+const file_validate_annotations_proto_rawDesc = "" +
 	"\n" +
-	"\x1dvalidate/v1/annotations.proto\x12 timmonfette1.protago.validate.v1\x1a google/protobuf/descriptor.proto\"*\n" +
+	"\x1avalidate/annotations.proto\x12\x1dtimmonfette1.protago.validate\x1a google/protobuf/descriptor.proto\"*\n" +
 	"\x14ValidateFieldOptions\x12\x12\n" +
-	"\x04rule\x18\x01 \x01(\tR\x04rule:s\n" +
-	"\bvalidate\x12\x1d.google.protobuf.FieldOptions\x18\xd1\xf1\x04 \x01(\v26.timmonfette1.protago.validate.v1.ValidateFieldOptionsR\bvalidateB@Z>github.com/timmonfette1/protago/gen/proto/validate/v1;validateb\beditionsp\xe9\a"
+	"\x04rule\x18\x01 \x01(\tR\x04rule:q\n" +
+	"\bvalidate\x12\x1d.google.protobuf.FieldOptions\x18\xd1\xe8\x92& \x01(\v23.timmonfette1.protago.validate.ValidateFieldOptionsR\bvalidateB<Z:github.com/timmonfette1/protago/genproto/validate;validateb\beditionsp\xe9\a"
 
-var file_validate_v1_annotations_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_validate_v1_annotations_proto_goTypes = []any{
-	(*ValidateFieldOptions)(nil),      // 0: timmonfette1.protago.validate.v1.ValidateFieldOptions
+var file_validate_annotations_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_validate_annotations_proto_goTypes = []any{
+	(*ValidateFieldOptions)(nil),      // 0: timmonfette1.protago.validate.ValidateFieldOptions
 	(*descriptorpb.FieldOptions)(nil), // 1: google.protobuf.FieldOptions
 }
-var file_validate_v1_annotations_proto_depIdxs = []int32{
-	1, // 0: timmonfette1.protago.validate.v1.validate:extendee -> google.protobuf.FieldOptions
-	0, // 1: timmonfette1.protago.validate.v1.validate:type_name -> timmonfette1.protago.validate.v1.ValidateFieldOptions
+var file_validate_annotations_proto_depIdxs = []int32{
+	1, // 0: timmonfette1.protago.validate.validate:extendee -> google.protobuf.FieldOptions
+	0, // 1: timmonfette1.protago.validate.validate:type_name -> timmonfette1.protago.validate.ValidateFieldOptions
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	1, // [1:2] is the sub-list for extension type_name
@@ -140,27 +140,27 @@ var file_validate_v1_annotations_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_validate_v1_annotations_proto_init() }
-func file_validate_v1_annotations_proto_init() {
-	if File_validate_v1_annotations_proto != nil {
+func init() { file_validate_annotations_proto_init() }
+func file_validate_annotations_proto_init() {
+	if File_validate_annotations_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_validate_v1_annotations_proto_rawDesc), len(file_validate_v1_annotations_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_validate_annotations_proto_rawDesc), len(file_validate_annotations_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 1,
 			NumServices:   0,
 		},
-		GoTypes:           file_validate_v1_annotations_proto_goTypes,
-		DependencyIndexes: file_validate_v1_annotations_proto_depIdxs,
-		MessageInfos:      file_validate_v1_annotations_proto_msgTypes,
-		ExtensionInfos:    file_validate_v1_annotations_proto_extTypes,
+		GoTypes:           file_validate_annotations_proto_goTypes,
+		DependencyIndexes: file_validate_annotations_proto_depIdxs,
+		MessageInfos:      file_validate_annotations_proto_msgTypes,
+		ExtensionInfos:    file_validate_annotations_proto_extTypes,
 	}.Build()
-	File_validate_v1_annotations_proto = out.File
-	file_validate_v1_annotations_proto_goTypes = nil
-	file_validate_v1_annotations_proto_depIdxs = nil
+	File_validate_annotations_proto = out.File
+	file_validate_annotations_proto_goTypes = nil
+	file_validate_annotations_proto_depIdxs = nil
 }
