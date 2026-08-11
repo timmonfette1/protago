@@ -24,7 +24,7 @@ const (
 type BsonFieldOptions struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_FieldName   *string                `protobuf:"bytes,1,opt,name=field_name,json=fieldName"`
-	xxx_hidden_OmitEmpty   bool                   `protobuf:"varint,2,opt,name=omit_empty,json=omitEmpty"`
+	xxx_hidden_Omitempty   bool                   `protobuf:"varint,2,opt,name=omitempty"`
 	xxx_hidden_Minsize     bool                   `protobuf:"varint,3,opt,name=minsize"`
 	xxx_hidden_Truncate    bool                   `protobuf:"varint,4,opt,name=truncate"`
 	xxx_hidden_Inline      bool                   `protobuf:"varint,5,opt,name=inline"`
@@ -69,9 +69,9 @@ func (x *BsonFieldOptions) GetFieldName() string {
 	return ""
 }
 
-func (x *BsonFieldOptions) GetOmitEmpty() bool {
+func (x *BsonFieldOptions) GetOmitempty() bool {
 	if x != nil {
-		return x.xxx_hidden_OmitEmpty
+		return x.xxx_hidden_Omitempty
 	}
 	return false
 }
@@ -102,8 +102,8 @@ func (x *BsonFieldOptions) SetFieldName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *BsonFieldOptions) SetOmitEmpty(v bool) {
-	x.xxx_hidden_OmitEmpty = v
+func (x *BsonFieldOptions) SetOmitempty(v bool) {
+	x.xxx_hidden_Omitempty = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
@@ -129,7 +129,7 @@ func (x *BsonFieldOptions) HasFieldName() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *BsonFieldOptions) HasOmitEmpty() bool {
+func (x *BsonFieldOptions) HasOmitempty() bool {
 	if x == nil {
 		return false
 	}
@@ -162,9 +162,9 @@ func (x *BsonFieldOptions) ClearFieldName() {
 	x.xxx_hidden_FieldName = nil
 }
 
-func (x *BsonFieldOptions) ClearOmitEmpty() {
+func (x *BsonFieldOptions) ClearOmitempty() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_OmitEmpty = false
+	x.xxx_hidden_Omitempty = false
 }
 
 func (x *BsonFieldOptions) ClearMinsize() {
@@ -186,7 +186,7 @@ type BsonFieldOptions_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	FieldName *string
-	OmitEmpty *bool
+	Omitempty *bool
 	Minsize   *bool
 	Truncate  *bool
 	Inline    *bool
@@ -200,9 +200,9 @@ func (b0 BsonFieldOptions_builder) Build() *BsonFieldOptions {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
 		x.xxx_hidden_FieldName = b.FieldName
 	}
-	if b.OmitEmpty != nil {
+	if b.Omitempty != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_OmitEmpty = *b.OmitEmpty
+		x.xxx_hidden_Omitempty = *b.Omitempty
 	}
 	if b.Minsize != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
@@ -240,12 +240,11 @@ var File_bson_annotations_proto protoreflect.FileDescriptor
 
 const file_bson_annotations_proto_rawDesc = "" +
 	"\n" +
-	"\x16bson/annotations.proto\x12 github.timmonfette1.protago.bson\x1a google/protobuf/descriptor.proto\"\x9e\x01\n" +
+	"\x16bson/annotations.proto\x12 github.timmonfette1.protago.bson\x1a google/protobuf/descriptor.proto\"\x9d\x01\n" +
 	"\x10BsonFieldOptions\x12\x1d\n" +
 	"\n" +
-	"field_name\x18\x01 \x01(\tR\tfieldName\x12\x1d\n" +
-	"\n" +
-	"omit_empty\x18\x02 \x01(\bR\tomitEmpty\x12\x18\n" +
+	"field_name\x18\x01 \x01(\tR\tfieldName\x12\x1c\n" +
+	"\tomitempty\x18\x02 \x01(\bR\tomitempty\x12\x18\n" +
 	"\aminsize\x18\x03 \x01(\bR\aminsize\x12\x1a\n" +
 	"\btruncate\x18\x04 \x01(\bR\btruncate\x12\x16\n" +
 	"\x06inline\x18\x05 \x01(\bR\x06inline:n\n" +

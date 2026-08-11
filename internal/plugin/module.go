@@ -4,10 +4,11 @@ import (
 	"go/parser"
 	"go/printer"
 	"go/token"
+	"path/filepath"
 	"strings"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
-	pgsgo "github.com/lyft/protoc-gen-star/v2/lang/go"
+	pgs "github.com/timmonfette1/protoc-gen-star/v2"
+	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
 
 type module struct {
@@ -34,6 +35,11 @@ func (m *module) Execute(targets map[string]pgs.File, packages map[string]pgs.Pa
 	for _, file := range targets {
 		tags := extractor.Extract(file)
 		fileName := m.Context.OutputPath(file).SetExt(".go").String()
+
+		outdir := m.Parameters().Str("outdir")
+		if outdir != "" {
+			fileName = filepath.Join(outdir, fileName)
+		}
 
 		fs := token.NewFileSet()
 		f, err := parser.ParseFile(fs, fileName, nil, parser.ParseComments)

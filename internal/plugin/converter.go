@@ -7,8 +7,12 @@ import (
 )
 
 func convertBsonToTag(b *bson.BsonFieldOptions) (*structtag.Tags, error) {
+	if b == nil {
+		return &structtag.Tags{}, nil
+	}
+
 	opts := []string{}
-	if b.GetOmitEmpty() {
+	if b.GetOmitempty() {
 		opts = append(opts, "omitempty")
 	}
 	if b.GetInline() {
@@ -33,5 +37,9 @@ func convertBsonToTag(b *bson.BsonFieldOptions) (*structtag.Tags, error) {
 }
 
 func convertValidateToTag(v *validate.ValidateFieldOptions) (*structtag.Tags, error) {
+	if v == nil {
+		return &structtag.Tags{}, nil
+	}
+
 	return structtag.Parse(v.GetRule())
 }

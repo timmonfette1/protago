@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package github.timmonfette1.protago.testing;
+
+import "bson/annotations.proto";
+import "validate/annotations.proto";
+
+option go_package = "github.com/timmonfette1/protago/test;test";
+
+message TestBson {
+    string id = 1 [
+        (github.timmonfette1.protago.bson.options) = {
+            field_name: "_id"
+        },
+        (github.timmonfette1.protago.validate.options) = {
+            rule: "validate:\"required,omitempty,max=255\""
+        }
+    ];
+    string display_name = 2 [
+        (github.timmonfette1.protago.bson.options) = {
+            field_name: "display_name"
+        },
+        (github.timmonfette1.protago.validate.options) = {
+            rule: "validate:\"required,omitempty,max=255\""
+        }
+    ];
+    optional int32 age = 3 [
+        (github.timmonfette1.protago.bson.options) = {
+            field_name: "age",
+            omitempty: true,
+        }
+    ];
+    optional string kitchen_sink = 4 [
+        (github.timmonfette1.protago.bson.options) = {
+            field_name: "kitchen_sink",
+            omitempty: true,
+            minsize: true,
+            truncate: true,
+            inline: true,
+        }
+    ];
+    optional bool skip = 5;
+    optional string email = 7 [
+        (github.timmonfette1.protago.bson.options) = {
+            field_name: "email",
+            omitempty: true,
+        },
+        (github.timmonfette1.protago.validate.options) = {
+            rule: "validate:\"required,hostname_rfc1123\""
+        }
+    ];
+}

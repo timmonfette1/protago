@@ -3,32 +3,25 @@ go = "1.26.4"
 buf = "1.71.0"
 "go:google.golang.org/protobuf/cmd/protoc-gen-go" = { version = "1.36.11" }
 
-[tasks.bufbuild]
-description = "Build all of the proto files"
-run = [
-    "buf generate --template buf.gen.yaml"
-]
-
 [tasks.build]
-description = "Build the Go source code"
-depends = [
-    "bufbuild",
-]
+description = "Build the project (includes all Go source code and proto generation)"
 run = [
+    "buf generate --template buf.gen.yaml protos/",
     "go fmt ./...",
     "go build ./...",
     "go vet -composites=false ./...",
 ]
 
-[tasks.buildtests]
+[tasks."test:build"]
 description = "Builds all testing dependencies"
 run = [
-    "buf generate --template test/buf.gen.test.yaml"
+    "buf generate --template test/buf.gen.test.yaml test/",
+    "buf generate --template test/buf.protago.test.yaml test/"
 ]
 
 [tasks.test]
 description = "Run unit tests"
 depends = [
-    "buildtests"
+    "test:build"
 ]
 run = "go test ./..."

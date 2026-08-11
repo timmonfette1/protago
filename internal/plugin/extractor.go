@@ -2,10 +2,10 @@ package plugin
 
 import (
 	"github.com/fatih/structtag"
-	pgs "github.com/lyft/protoc-gen-star/v2"
-	pgsgo "github.com/lyft/protoc-gen-star/v2/lang/go"
 	"github.com/timmonfette1/protago/internal/genproto/bson"
 	"github.com/timmonfette1/protago/internal/genproto/validate"
+	pgs "github.com/timmonfette1/protoc-gen-star/v2"
+	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
 
 type StructTags map[string]map[string]*structtag.Tags
