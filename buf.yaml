@@ -1,15 +1,14 @@
 version: v2
 modules:
-  - path: protago/protos
-deps:
-  - buf.build/googleapis/googleapis
+  - path: protos
+  - path: test
 lint:
   use:
     - BASIC
     - FILE_LOWER_SNAKE_CASE
   except:
     - FIELD_NOT_REQUIRED
-    - PACKAGE_NO_IMPORT_CYCLE
+    - PACKAGE_DIRECTORY_MATCH
   disallow_comment_ignores: true
 breaking:
   use:

@@ -6,7 +6,7 @@ buf = "1.71.0"
 [tasks.bufbuild]
 description = "Build all of the proto files"
 run = [
-    "buf generate --template protago/protos/buf.gen.yaml"
+    "buf generate --template buf.gen.yaml"
 ]
 
 [tasks.build]
@@ -20,6 +20,15 @@ run = [
     "go vet -composites=false ./...",
 ]
 
+[tasks.buildtests]
+description = "Builds all testing dependencies"
+run = [
+    "buf generate --template test/buf.gen.test.yaml"
+]
+
 [tasks.test]
 description = "Run unit tests"
+depends = [
+    "buildtests"
+]
 run = "go test ./..."

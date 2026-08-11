@@ -1,0 +1,19 @@
+edition = "2024";
+
+package github.timmonfette1.protago.bson;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/timmonfette1/protago/internal/genproto/bson;bson";
+
+message BsonFieldOptions {
+    string field_name = 1;
+    bool omit_empty = 2;
+    bool minsize = 3;
+    bool truncate = 4;
+    bool inline = 5;
+}
+
+extend google.protobuf.FieldOptions {
+    BsonFieldOptions options = 80000080;
+}
