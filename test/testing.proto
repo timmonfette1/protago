@@ -11,17 +11,11 @@ message TestBson {
     string id = 1 [
         (github.timmonfette1.protago.bson.options) = {
             field_name: "_id"
-        },
-        (github.timmonfette1.protago.validate.options) = {
-            rule: "validate:\"required,omitempty,max=255\""
         }
     ];
     string display_name = 2 [
         (github.timmonfette1.protago.bson.options) = {
             field_name: "display_name"
-        },
-        (github.timmonfette1.protago.validate.options) = {
-            rule: "validate:\"required,omitempty,max=255\""
         }
     ];
     optional int32 age = 3 [
@@ -44,9 +38,20 @@ message TestBson {
         (github.timmonfette1.protago.bson.options) = {
             field_name: "email",
             omitempty: true,
-        },
+        }
+    ];
+}
+
+message TestValidate {
+    string id = 1 [
+        (github.timmonfette1.protago.validate.options) = {
+            rule: "validate:\"required,omitempty,max=255\""
+        }
+    ];
+    optional string email = 2 [
         (github.timmonfette1.protago.validate.options) = {
             rule: "validate:\"required,hostname_rfc1123\""
         }
     ];
+    optional bool skip = 3;
 }

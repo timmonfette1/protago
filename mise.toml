@@ -25,3 +25,10 @@ depends = [
     "test:build"
 ]
 run = "go test ./..."
+
+[tasks.testv]
+description = "Run unit tests"
+depends = [
+    "test:build"
+]
+run = "go test -v ./..."

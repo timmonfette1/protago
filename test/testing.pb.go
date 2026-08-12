@@ -25,12 +25,12 @@ const (
 
 type TestBson struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" bson:"_id" validate:"required,omitempty,max=255"`
-	DisplayName   string                 `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty" bson:"display_name" validate:"required,omitempty,max=255"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" bson:"_id"`
+	DisplayName   string                 `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty" bson:"display_name"`
 	Age           *int32                 `protobuf:"varint,3,opt,name=age,proto3,oneof" json:"age,omitempty" bson:"age,omitempty"`
 	KitchenSink   *string                `protobuf:"bytes,4,opt,name=kitchen_sink,json=kitchenSink,proto3,oneof" json:"kitchen_sink,omitempty" bson:"kitchen_sink,omitempty,inline,minsize,truncate"`
 	Skip          *bool                  `protobuf:"varint,5,opt,name=skip,proto3,oneof" json:"skip,omitempty"`
-	Email         *string                `protobuf:"bytes,7,opt,name=email,proto3,oneof" json:"email,omitempty" bson:"email,omitempty" validate:"required,hostname_rfc1123"`
+	Email         *string                `protobuf:"bytes,7,opt,name=email,proto3,oneof" json:"email,omitempty" bson:"email,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,30 +107,95 @@ func (x *TestBson) GetEmail() string {
 	return ""
 }
 
+type TestValidate struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" validate:"required,omitempty,max=255"`
+	Email         *string                `protobuf:"bytes,2,opt,name=email,proto3,oneof" json:"email,omitempty" validate:"required,hostname_rfc1123"`
+	Skip          *bool                  `protobuf:"varint,3,opt,name=skip,proto3,oneof" json:"skip,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TestValidate) Reset() {
+	*x = TestValidate{}
+	mi := &file_testing_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TestValidate) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TestValidate) ProtoMessage() {}
+
+func (x *TestValidate) ProtoReflect() protoreflect.Message {
+	mi := &file_testing_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TestValidate.ProtoReflect.Descriptor instead.
+func (*TestValidate) Descriptor() ([]byte, []int) {
+	return file_testing_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *TestValidate) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *TestValidate) GetEmail() string {
+	if x != nil && x.Email != nil {
+		return *x.Email
+	}
+	return ""
+}
+
+func (x *TestValidate) GetSkip() bool {
+	if x != nil && x.Skip != nil {
+		return *x.Skip
+	}
+	return false
+}
+
 var File_testing_proto protoreflect.FileDescriptor
 
 const file_testing_proto_rawDesc = "" +
 	"\n" +
-	"\rtesting.proto\x12#github.timmonfette1.protago.testing\x1a\x16bson/annotations.proto\x1a\x1avalidate/annotations.proto\"\xc3\x03\n" +
-	"\bTestBson\x12H\n" +
-	"\x02id\x18\x01 \x01(\tB8\x82Ŗ\xb1\x02\x05\n" +
-	"\x03_id\x8aŖ\xb1\x02'\n" +
-	"%validate:\"required,omitempty,max=255\"R\x02id\x12d\n" +
-	"\fdisplay_name\x18\x02 \x01(\tBA\x82Ŗ\xb1\x02\x0e\n" +
-	"\fdisplay_name\x8aŖ\xb1\x02'\n" +
-	"%validate:\"required,omitempty,max=255\"R\vdisplayName\x12$\n" +
+	"\rtesting.proto\x12#github.timmonfette1.protago.testing\x1a\x16bson/annotations.proto\x1a\x1avalidate/annotations.proto\"\xbd\x02\n" +
+	"\bTestBson\x12\x1b\n" +
+	"\x02id\x18\x01 \x01(\tB\v\x82Ŗ\xb1\x02\x05\n" +
+	"\x03_idR\x02id\x127\n" +
+	"\fdisplay_name\x18\x02 \x01(\tB\x14\x82Ŗ\xb1\x02\x0e\n" +
+	"\fdisplay_nameR\vdisplayName\x12$\n" +
 	"\x03age\x18\x03 \x01(\x05B\r\x82Ŗ\xb1\x02\a\n" +
 	"\x03age\x10\x01H\x00R\x03age\x88\x01\x01\x12D\n" +
 	"\fkitchen_sink\x18\x04 \x01(\tB\x1c\x82Ŗ\xb1\x02\x16\n" +
 	"\fkitchen_sink\x10\x01\x18\x01 \x01(\x01H\x01R\vkitchenSink\x88\x01\x01\x12\x17\n" +
-	"\x04skip\x18\x05 \x01(\bH\x02R\x04skip\x88\x01\x01\x12V\n" +
-	"\x05email\x18\a \x01(\tB;\x82Ŗ\xb1\x02\t\n" +
-	"\x05email\x10\x01\x8aŖ\xb1\x02&\n" +
-	"$validate:\"required,hostname_rfc1123\"H\x03R\x05email\x88\x01\x01B\x06\n" +
+	"\x04skip\x18\x05 \x01(\bH\x02R\x04skip\x88\x01\x01\x12*\n" +
+	"\x05email\x18\a \x01(\tB\x0f\x82Ŗ\xb1\x02\t\n" +
+	"\x05email\x10\x01H\x03R\x05email\x88\x01\x01B\x06\n" +
 	"\x04_ageB\x0f\n" +
 	"\r_kitchen_sinkB\a\n" +
 	"\x05_skipB\b\n" +
-	"\x06_emailB+Z)github.com/timmonfette1/protago/test;testb\x06proto3"
+	"\x06_email\"\xc2\x01\n" +
+	"\fTestValidate\x12=\n" +
+	"\x02id\x18\x01 \x01(\tB-\x8aŖ\xb1\x02'\n" +
+	"%validate:\"required,omitempty,max=255\"R\x02id\x12G\n" +
+	"\x05email\x18\x02 \x01(\tB,\x8aŖ\xb1\x02&\n" +
+	"$validate:\"required,hostname_rfc1123\"H\x00R\x05email\x88\x01\x01\x12\x17\n" +
+	"\x04skip\x18\x03 \x01(\bH\x01R\x04skip\x88\x01\x01B\b\n" +
+	"\x06_emailB\a\n" +
+	"\x05_skipB+Z)github.com/timmonfette1/protago/test;testb\x06proto3"
 
 var (
 	file_testing_proto_rawDescOnce sync.Once
@@ -144,9 +209,10 @@ func file_testing_proto_rawDescGZIP() []byte {
 	return file_testing_proto_rawDescData
 }
 
-var file_testing_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_testing_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_testing_proto_goTypes = []any{
-	(*TestBson)(nil), // 0: github.timmonfette1.protago.testing.TestBson
+	(*TestBson)(nil),     // 0: github.timmonfette1.protago.testing.TestBson
+	(*TestValidate)(nil), // 1: github.timmonfette1.protago.testing.TestValidate
 }
 var file_testing_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -162,13 +228,14 @@ func file_testing_proto_init() {
 		return
 	}
 	file_testing_proto_msgTypes[0].OneofWrappers = []any{}
+	file_testing_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_testing_proto_rawDesc), len(file_testing_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
