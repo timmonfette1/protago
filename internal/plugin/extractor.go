@@ -1,9 +1,10 @@
 package plugin
 
 import (
+	"fmt"
+
 	"github.com/fatih/structtag"
-	"github.com/timmonfette1/protago/internal/genproto/bson"
-	"github.com/timmonfette1/protago/internal/genproto/validate"
+	"github.com/timmonfette1/protago/internal/taggers"
 	pgs "github.com/timmonfette1/protoc-gen-star/v2"
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
@@ -14,16 +15,23 @@ type tagExtractor struct {
 	pgs.Visitor
 	pgs.DebuggerCommon
 	pgsgo.Context
-	tags StructTags
+	taggers *taggers.TaggerSet
+	tags    StructTags
 }
 
 func newTagExtactor(debug pgs.DebuggerCommon, ctx pgsgo.Context) *tagExtractor {
 	te := &tagExtractor{
 		DebuggerCommon: debug,
 		Context:        ctx,
+		taggers:        &taggers.TaggerSet{},
 	}
 	te.Visitor = pgs.PassThroughVisitor(te)
 
+	return te
+}
+
+func (te *tagExtractor) registerTagger(t taggers.Tagger) *tagExtractor {
+	te.taggers.Add(t)
 	return te
 }
 
@@ -34,36 +42,18 @@ func (te *tagExtractor) VisitField(field pgs.Field) (pgs.Visitor, error) {
 	}
 
 	tags := structtag.Tags{}
-
-	// BSON tags
-	var bsonFieldOptions *bson.BsonFieldOptions
-	_, err := field.Extension(bson.E_Options, &bsonFieldOptions)
-	if err != nil {
-		return nil, err
-	}
-
-	bsonTags, err := convertBsonToTag(bsonFieldOptions)
-	te.CheckErr(err)
-	for _, tag := range bsonTags.Tags() {
-		err := tags.Set(tag)
-		if err != nil {
-			te.DebuggerCommon.Fail("Error with generating BSON tags: ", err)
+	for _, t := range te.taggers.GetTaggers() {
+		tag, err := t.GenerateTag(field)
+		te.CheckErr(err)
+		if tag == nil {
+			continue
 		}
-	}
 
-	// Validate tags
-	var validateFieldOptions *validate.ValidateFieldOptions
-	_, err = field.Extension(validate.E_Options, &validateFieldOptions)
-	if err != nil {
-		return nil, err
-	}
+		te.Debug("adding tag:", tag.String())
 
-	validateTags, err := convertValidateToTag(validateFieldOptions)
-	te.CheckErr(err)
-	for _, tag := range validateTags.Tags() {
-		err := tags.Set(tag)
+		err = tags.Set(tag)
 		if err != nil {
-			te.DebuggerCommon.Fail("Error with generating BSON tags: ", err)
+			te.DebuggerCommon.Fail(fmt.Sprintf("Error with generating '%s' tags: %v", t.GetName(), err))
 		}
 	}
 
