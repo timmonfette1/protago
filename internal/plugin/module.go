@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/timmonfette1/protago/internal/taggers"
 	pgs "github.com/timmonfette1/protoc-gen-star/v2"
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
@@ -31,6 +32,9 @@ func (module) Name() string {
 
 func (m *module) Execute(targets map[string]pgs.File, packages map[string]pgs.Package) []pgs.Artifact {
 	extractor := newTagExtactor(m, m.Context)
+	extractor = extractor.
+		registerTagger(&taggers.BsonTagger{DebuggerCommon: m, Context: m.Context}).
+		registerTagger(&taggers.ValidateTagger{DebuggerCommon: m, Context: m.Context})
 
 	for _, file := range targets {
 		tags := extractor.Extract(file)

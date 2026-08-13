@@ -15,6 +15,9 @@ run = [
 [tasks."test:build"]
 description = "Builds all testing dependencies"
 dir = "{{config_root}}/test"
+depends = [
+    "build"
+]
 run = [
     "buf generate --template buf.gen.test.yaml",
     "buf generate --template buf.protago.test.yaml"
