@@ -1,0 +1,9 @@
+version: v2
+plugins:
+  - local:
+      - go
+      - run
+      - ../cmd/protoc-gen-protago
+    out: .
+    opt:
+      - paths=source_relative

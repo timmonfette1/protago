@@ -24,6 +24,10 @@ const (
 type BsonFieldOptions struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_FieldName   *string                `protobuf:"bytes,1,opt,name=field_name,json=fieldName"`
+	xxx_hidden_Omitempty   bool                   `protobuf:"varint,2,opt,name=omitempty"`
+	xxx_hidden_Minsize     bool                   `protobuf:"varint,3,opt,name=minsize"`
+	xxx_hidden_Truncate    bool                   `protobuf:"varint,4,opt,name=truncate"`
+	xxx_hidden_Inline      bool                   `protobuf:"varint,5,opt,name=inline"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -65,9 +69,57 @@ func (x *BsonFieldOptions) GetFieldName() string {
 	return ""
 }
 
+func (x *BsonFieldOptions) GetOmitempty() bool {
+	if x != nil {
+		return x.xxx_hidden_Omitempty
+	}
+	return false
+}
+
+func (x *BsonFieldOptions) GetMinsize() bool {
+	if x != nil {
+		return x.xxx_hidden_Minsize
+	}
+	return false
+}
+
+func (x *BsonFieldOptions) GetTruncate() bool {
+	if x != nil {
+		return x.xxx_hidden_Truncate
+	}
+	return false
+}
+
+func (x *BsonFieldOptions) GetInline() bool {
+	if x != nil {
+		return x.xxx_hidden_Inline
+	}
+	return false
+}
+
 func (x *BsonFieldOptions) SetFieldName(v string) {
 	x.xxx_hidden_FieldName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
+}
+
+func (x *BsonFieldOptions) SetOmitempty(v bool) {
+	x.xxx_hidden_Omitempty = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
+}
+
+func (x *BsonFieldOptions) SetMinsize(v bool) {
+	x.xxx_hidden_Minsize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
+}
+
+func (x *BsonFieldOptions) SetTruncate(v bool) {
+	x.xxx_hidden_Truncate = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+}
+
+func (x *BsonFieldOptions) SetInline(v bool) {
+	x.xxx_hidden_Inline = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
 
 func (x *BsonFieldOptions) HasFieldName() bool {
@@ -77,15 +129,67 @@ func (x *BsonFieldOptions) HasFieldName() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
+func (x *BsonFieldOptions) HasOmitempty() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *BsonFieldOptions) HasMinsize() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *BsonFieldOptions) HasTruncate() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *BsonFieldOptions) HasInline() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
 func (x *BsonFieldOptions) ClearFieldName() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
 	x.xxx_hidden_FieldName = nil
+}
+
+func (x *BsonFieldOptions) ClearOmitempty() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Omitempty = false
+}
+
+func (x *BsonFieldOptions) ClearMinsize() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Minsize = false
+}
+
+func (x *BsonFieldOptions) ClearTruncate() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_Truncate = false
+}
+
+func (x *BsonFieldOptions) ClearInline() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_Inline = false
 }
 
 type BsonFieldOptions_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	FieldName *string
+	Omitempty *bool
+	Minsize   *bool
+	Truncate  *bool
+	Inline    *bool
 }
 
 func (b0 BsonFieldOptions_builder) Build() *BsonFieldOptions {
@@ -93,8 +197,24 @@ func (b0 BsonFieldOptions_builder) Build() *BsonFieldOptions {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.FieldName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
 		x.xxx_hidden_FieldName = b.FieldName
+	}
+	if b.Omitempty != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_Omitempty = *b.Omitempty
+	}
+	if b.Minsize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_Minsize = *b.Minsize
+	}
+	if b.Truncate != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_Truncate = *b.Truncate
+	}
+	if b.Inline != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_Inline = *b.Inline
 	}
 	return m0
 }
@@ -104,36 +224,40 @@ var file_bson_annotations_proto_extTypes = []protoimpl.ExtensionInfo{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
 		ExtensionType: (*BsonFieldOptions)(nil),
 		Field:         80000080,
-		Name:          "timmonfette1.protago.bson.bson",
-		Tag:           "bytes,80000080,opt,name=bson",
+		Name:          "github.timmonfette1.protago.bson.options",
+		Tag:           "bytes,80000080,opt,name=options",
 		Filename:      "bson/annotations.proto",
 	},
 }
 
 // Extension fields to descriptorpb.FieldOptions.
 var (
-	// optional timmonfette1.protago.bson.BsonFieldOptions bson = 80000080;
-	E_Bson = &file_bson_annotations_proto_extTypes[0]
+	// optional github.timmonfette1.protago.bson.BsonFieldOptions options = 80000080;
+	E_Options = &file_bson_annotations_proto_extTypes[0]
 )
 
 var File_bson_annotations_proto protoreflect.FileDescriptor
 
 const file_bson_annotations_proto_rawDesc = "" +
 	"\n" +
-	"\x16bson/annotations.proto\x12\x19timmonfette1.protago.bson\x1a google/protobuf/descriptor.proto\"1\n" +
+	"\x16bson/annotations.proto\x12 github.timmonfette1.protago.bson\x1a google/protobuf/descriptor.proto\"\x9d\x01\n" +
 	"\x10BsonFieldOptions\x12\x1d\n" +
 	"\n" +
-	"field_name\x18\x01 \x01(\tR\tfieldName:a\n" +
-	"\x04bson\x12\x1d.google.protobuf.FieldOptions\x18\xd0\xe8\x92& \x01(\v2+.timmonfette1.protago.bson.BsonFieldOptionsR\x04bsonB4Z2github.com/timmonfette1/protago/genproto/bson;bsonb\beditionsp\xe9\a"
+	"field_name\x18\x01 \x01(\tR\tfieldName\x12\x1c\n" +
+	"\tomitempty\x18\x02 \x01(\bR\tomitempty\x12\x18\n" +
+	"\aminsize\x18\x03 \x01(\bR\aminsize\x12\x1a\n" +
+	"\btruncate\x18\x04 \x01(\bR\btruncate\x12\x16\n" +
+	"\x06inline\x18\x05 \x01(\bR\x06inline:n\n" +
+	"\aoptions\x12\x1d.google.protobuf.FieldOptions\x18\xd0\xe8\x92& \x01(\v22.github.timmonfette1.protago.bson.BsonFieldOptionsR\aoptionsB=Z;github.com/timmonfette1/protago/internal/genproto/bson;bsonb\beditionsp\xe9\a"
 
 var file_bson_annotations_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_bson_annotations_proto_goTypes = []any{
-	(*BsonFieldOptions)(nil),          // 0: timmonfette1.protago.bson.BsonFieldOptions
+	(*BsonFieldOptions)(nil),          // 0: github.timmonfette1.protago.bson.BsonFieldOptions
 	(*descriptorpb.FieldOptions)(nil), // 1: google.protobuf.FieldOptions
 }
 var file_bson_annotations_proto_depIdxs = []int32{
-	1, // 0: timmonfette1.protago.bson.bson:extendee -> google.protobuf.FieldOptions
-	0, // 1: timmonfette1.protago.bson.bson:type_name -> timmonfette1.protago.bson.BsonFieldOptions
+	1, // 0: github.timmonfette1.protago.bson.options:extendee -> google.protobuf.FieldOptions
+	0, // 1: github.timmonfette1.protago.bson.options:type_name -> github.timmonfette1.protago.bson.BsonFieldOptions
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	1, // [1:2] is the sub-list for extension type_name

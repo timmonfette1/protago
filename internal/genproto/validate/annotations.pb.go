@@ -104,35 +104,35 @@ var file_validate_annotations_proto_extTypes = []protoimpl.ExtensionInfo{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
 		ExtensionType: (*ValidateFieldOptions)(nil),
 		Field:         80000081,
-		Name:          "timmonfette1.protago.validate.validate",
-		Tag:           "bytes,80000081,opt,name=validate",
+		Name:          "github.timmonfette1.protago.validate.options",
+		Tag:           "bytes,80000081,opt,name=options",
 		Filename:      "validate/annotations.proto",
 	},
 }
 
 // Extension fields to descriptorpb.FieldOptions.
 var (
-	// optional timmonfette1.protago.validate.ValidateFieldOptions validate = 80000081;
-	E_Validate = &file_validate_annotations_proto_extTypes[0]
+	// optional github.timmonfette1.protago.validate.ValidateFieldOptions options = 80000081;
+	E_Options = &file_validate_annotations_proto_extTypes[0]
 )
 
 var File_validate_annotations_proto protoreflect.FileDescriptor
 
 const file_validate_annotations_proto_rawDesc = "" +
 	"\n" +
-	"\x1avalidate/annotations.proto\x12\x1dtimmonfette1.protago.validate\x1a google/protobuf/descriptor.proto\"*\n" +
+	"\x1avalidate/annotations.proto\x12$github.timmonfette1.protago.validate\x1a google/protobuf/descriptor.proto\"*\n" +
 	"\x14ValidateFieldOptions\x12\x12\n" +
-	"\x04rule\x18\x01 \x01(\tR\x04rule:q\n" +
-	"\bvalidate\x12\x1d.google.protobuf.FieldOptions\x18\xd1\xe8\x92& \x01(\v23.timmonfette1.protago.validate.ValidateFieldOptionsR\bvalidateB<Z:github.com/timmonfette1/protago/genproto/validate;validateb\beditionsp\xe9\a"
+	"\x04rule\x18\x01 \x01(\tR\x04rule:v\n" +
+	"\aoptions\x12\x1d.google.protobuf.FieldOptions\x18\xd1\xe8\x92& \x01(\v2:.github.timmonfette1.protago.validate.ValidateFieldOptionsR\aoptionsBEZCgithub.com/timmonfette1/protago/internal/genproto/validate;validateb\beditionsp\xe9\a"
 
 var file_validate_annotations_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_validate_annotations_proto_goTypes = []any{
-	(*ValidateFieldOptions)(nil),      // 0: timmonfette1.protago.validate.ValidateFieldOptions
+	(*ValidateFieldOptions)(nil),      // 0: github.timmonfette1.protago.validate.ValidateFieldOptions
 	(*descriptorpb.FieldOptions)(nil), // 1: google.protobuf.FieldOptions
 }
 var file_validate_annotations_proto_depIdxs = []int32{
-	1, // 0: timmonfette1.protago.validate.validate:extendee -> google.protobuf.FieldOptions
-	0, // 1: timmonfette1.protago.validate.validate:type_name -> timmonfette1.protago.validate.ValidateFieldOptions
+	1, // 0: github.timmonfette1.protago.validate.options:extendee -> google.protobuf.FieldOptions
+	0, // 1: github.timmonfette1.protago.validate.options:type_name -> github.timmonfette1.protago.validate.ValidateFieldOptions
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	1, // [1:2] is the sub-list for extension type_name

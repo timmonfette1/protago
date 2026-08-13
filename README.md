@@ -40,9 +40,11 @@ If you prefer to use `mise` for tool management, then you can install the protoc
 "go:github.com/timmonfette1/protago/cmd/protoc-gen-protago" = { version = "latest" }
 ```
 
-Checkout the [examples](./examples) for more detailed examples around using the `FieldOptions` in your protos or how to utilize the include Go modules for working with the `FieldOptions` and other useful functions.
+Once you have the tool installed, you'll need to call it as part of your protoc executions
 
-## Building this Repository
+TODO
+
+## Building and Testing this Repository
 This project uses [mise](https://mise.jdx.dev/) for tool management as well as for building the project.
 
 Simply clone this repository and run
@@ -51,8 +53,13 @@ $ mise run build
 ```
 to build both the protos as well as all of the Go code.
 
-If you'd like to just compile the protos, you can simply run
+To build all of the static files for the tests - like any test protobuf files - run
 ```sh-session
-$ mise run bufbuild
+$ mise run test:build
 ```
-to build only the proto files.
+
+Then you can execute the tests either in standard or verbose mode
+```sh-session
+$ mise run test
+$ mise run testv
+```

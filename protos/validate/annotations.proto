@@ -1,0 +1,15 @@
+edition = "2024";
+
+package github.timmonfette1.protago.validate;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/timmonfette1/protago/internal/genproto/validate;validate";
+
+message ValidateFieldOptions {
+    string rule = 1;
+}
+
+extend google.protobuf.FieldOptions {
+    ValidateFieldOptions options = 80000081;
+}
