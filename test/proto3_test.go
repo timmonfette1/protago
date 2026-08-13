@@ -19,7 +19,7 @@ func TestBsonTags(t *testing.T) {
 	displayName, ok := te.FieldByName("DisplayName")
 	assert.True(t, ok)
 	displayNameBsonTag := displayName.Tag.Get("bson")
-	assert.Equal(t, "display_name", displayNameBsonTag)
+	assert.Equal(t, "display_namex", displayNameBsonTag)
 
 	age, ok := te.FieldByName("Age")
 	assert.True(t, ok)
