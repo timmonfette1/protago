@@ -3,9 +3,6 @@ go = "1.26.4"
 buf = "1.71.0"
 "go:google.golang.org/protobuf/cmd/protoc-gen-go" = { version = "1.36.11" }
 
-[env]
-PROTAGO_DEBUG = 'enabled'
-
 [tasks.build]
 description = "Build the project (includes all Go source code and proto generation)"
 run = [
