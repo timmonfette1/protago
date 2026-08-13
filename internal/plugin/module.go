@@ -36,13 +36,14 @@ func (m *module) Execute(targets map[string]pgs.File, packages map[string]pgs.Pa
 		tags := extractor.Extract(file)
 		fileName := m.Context.OutputPath(file).SetExt(".go").String()
 
-		outdir := m.Parameters().Str("outdir")
-		if outdir != "" {
-			fileName = filepath.Join(outdir, fileName)
+		inputFile := fileName
+		sourceDir := m.Parameters().Str("source_dir")
+		if sourceDir != "" {
+			inputFile = filepath.Join(inputFile, fileName)
 		}
 
 		fs := token.NewFileSet()
-		f, err := parser.ParseFile(fs, fileName, nil, parser.ParseComments)
+		f, err := parser.ParseFile(fs, inputFile, nil, parser.ParseComments)
 		m.CheckErr(err)
 
 		err = replaceTags(f, tags)

@@ -73,7 +73,7 @@ func (te *tagExtractor) VisitField(field pgs.Field) (pgs.Visitor, error) {
 }
 
 func (te *tagExtractor) Extract(file pgs.File) StructTags {
-	te.tags = map[string]map[string]*structtag.Tags{}
+	te.tags = StructTags{}
 	err := pgs.Walk(te, file)
 	te.CheckErr(err)
 	return te.tags
