@@ -1,7 +1,9 @@
 # protago
 
+# PROTAGO IS STILL IN ACTIVE DEVELOPMENT.  THERE ARE NO OFFICIAL RELEASES YET AND SUPPORT/FUNCTIONALITY IS NOT GUARANTEED.  IT IS NOT RECOMMENDED THAT YOU USE THIS TOOLCHAIN UNTIL IT IS CONSIDERED STABLE AND RELEASED
+
 ## What Is It?
-`protago` is a Protobuf/Go toolchain that allows for a seamless integration of Protobuf `FieldOptions` and common Go `struct` tags.  Inspired by a problem faced in my day to day job, I designed `protago` to facilitate a single-struct approach to data models within a Go application.
+`protago` (pro-tag-go) is a Protobuf/Go toolchain that allows for a seamless integration of Protobuf `FieldOptions` and common Go `struct` tags.  Inspired by a problem faced in my day to day job, I designed `protago` to facilitate a single-struct approach to data models within a Go application.
 
 Go uses struct tags for a variety of things such as, but not limited to:
 - Struct validation using the `validate` tag and the [validator](https://github.com/go-playground/validator) package.
