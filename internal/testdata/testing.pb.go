@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: testing.proto
 
-package test
+package testdata
 
 import (
 	_ "github.com/timmonfette1/protago/internal/genproto/bson"
@@ -195,7 +195,7 @@ const file_testing_proto_rawDesc = "" +
 	"$validate:\"required,hostname_rfc1123\"H\x00R\x05email\x88\x01\x01\x12\x17\n" +
 	"\x04skip\x18\x03 \x01(\bH\x01R\x04skip\x88\x01\x01B\b\n" +
 	"\x06_emailB\a\n" +
-	"\x05_skipB+Z)github.com/timmonfette1/protago/test;testb\x06proto3"
+	"\x05_skipB<Z:github.com/timmonfette1/protago/internal/testdata;testdatab\x06proto3"
 
 var (
 	file_testing_proto_rawDescOnce sync.Once

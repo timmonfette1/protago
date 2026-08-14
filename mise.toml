@@ -14,7 +14,7 @@ run = [
 
 [tasks."test:build"]
 description = "Builds all testing dependencies"
-dir = "{{config_root}}/test"
+dir = "{{config_root}}/internal/testdata"
 depends = [
     "build"
 ]

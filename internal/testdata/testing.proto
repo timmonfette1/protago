@@ -5,7 +5,7 @@ package github.timmonfette1.protago.testing;
 import "bson/annotations.proto";
 import "validate/annotations.proto";
 
-option go_package = "github.com/timmonfette1/protago/test;test";
+option go_package = "github.com/timmonfette1/protago/internal/testdata;testdata";
 
 message TestBson {
     string id = 1 [

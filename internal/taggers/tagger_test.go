@@ -5,13 +5,12 @@ import (
 
 	"github.com/fatih/structtag"
 	"github.com/stretchr/testify/assert"
-	"github.com/timmonfette1/protago/internal/taggers"
 	pgs "github.com/timmonfette1/protoc-gen-star/v2"
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
 
-var _ taggers.Tagger = (*dummyTagger)(nil)
-var _ taggers.Tagger = (*validTagger)(nil)
+var _ Tagger = (*dummyTagger)(nil)
+var _ Tagger = (*validTagger)(nil)
 
 type dummyTagger struct {
 	pgs.DebuggerCommon
@@ -36,7 +35,7 @@ func (v *validTagger) GenerateTag(field pgs.Field) (*structtag.Tag, error) {
 }
 
 func TestTaggerSet(t *testing.T) {
-	ts := taggers.TaggerSet{}
+	ts := TaggerSet{}
 	err := ts.Add(nil)
 	assert.Error(t, err)
 
