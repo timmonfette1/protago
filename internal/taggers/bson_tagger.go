@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/fatih/structtag"
-	"github.com/timmonfette1/protago/internal/genproto/bson"
+	"github.com/timmonfette1/protago/internal/genproto/protago/bson/v1"
 	pgs "github.com/timmonfette1/protoc-gen-star/v2"
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )

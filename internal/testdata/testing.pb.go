@@ -7,8 +7,8 @@
 package testdata
 
 import (
-	_ "github.com/timmonfette1/protago/internal/genproto/bson"
-	_ "github.com/timmonfette1/protago/internal/genproto/validate"
+	_ "github.com/timmonfette1/protago/internal/genproto/protago/bson/v1"
+	_ "github.com/timmonfette1/protago/internal/genproto/protago/validate/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -171,7 +171,7 @@ var File_testing_proto protoreflect.FileDescriptor
 
 const file_testing_proto_rawDesc = "" +
 	"\n" +
-	"\rtesting.proto\x12#github.timmonfette1.protago.testing\x1a\x16bson/annotations.proto\x1a\x1avalidate/annotations.proto\"\xbd\x02\n" +
+	"\rtesting.proto\x12\btestdata\x1a!protago/bson/v1/annotations.proto\x1a%protago/validate/v1/annotations.proto\"\xbd\x02\n" +
 	"\bTestBson\x12\x1b\n" +
 	"\x02id\x18\x01 \x01(\tB\v\x82Ŗ\xb1\x02\x05\n" +
 	"\x03_idR\x02id\x127\n" +
@@ -211,8 +211,8 @@ func file_testing_proto_rawDescGZIP() []byte {
 
 var file_testing_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_testing_proto_goTypes = []any{
-	(*TestBson)(nil),     // 0: github.timmonfette1.protago.testing.TestBson
-	(*TestValidate)(nil), // 1: github.timmonfette1.protago.testing.TestValidate
+	(*TestBson)(nil),     // 0: testdata.TestBson
+	(*TestValidate)(nil), // 1: testdata.TestValidate
 }
 var file_testing_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

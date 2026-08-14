@@ -1,6 +1,7 @@
 version: v2
 modules:
-  - path: protos
+  - path: proto
+    name: buf.build/timmonfette1/protago
   - path: internal/testdata
 lint:
   use:
@@ -8,7 +9,9 @@ lint:
     - FILE_LOWER_SNAKE_CASE
   except:
     - FIELD_NOT_REQUIRED
-    - PACKAGE_DIRECTORY_MATCH
+  ignore_only:
+    PACKAGE_DIRECTORY_MATCH:
+      - internal/testdata/testing.proto
   disallow_comment_ignores: true
 breaking:
   use:
