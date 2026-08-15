@@ -1,4 +1,4 @@
-package taggers
+package generators
 
 import (
 	"fmt"
@@ -9,18 +9,18 @@ import (
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
 
-type ValidateTagger struct {
+type ValidateGenerator struct {
 	pgs.DebuggerCommon
 	pgsgo.Context
 }
 
-var _ Tagger = (*ValidateTagger)(nil)
+var _ Generator = (*ValidateGenerator)(nil)
 
-func (vt *ValidateTagger) GetName() string {
+func (vt *ValidateGenerator) GetName() string {
 	return "ValidateTagger"
 }
 
-func (vt *ValidateTagger) GenerateTag(field pgs.Field) (*structtag.Tag, error) {
+func (vt *ValidateGenerator) GenerateTag(field pgs.Field) (*structtag.Tag, error) {
 	vt.Debug(fmt.Sprintf("parsing 'validate' tags for field '%s'", field.Name().String()))
 
 	var validateFieldOptions *validate.ValidateFieldOptions

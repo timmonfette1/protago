@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/fatih/structtag"
-	"github.com/timmonfette1/protago/internal/taggers"
+	"github.com/timmonfette1/protago/internal/generators"
 	pgs "github.com/timmonfette1/protoc-gen-star/v2"
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
@@ -15,23 +15,23 @@ type tagExtractor struct {
 	pgs.Visitor
 	pgs.DebuggerCommon
 	pgsgo.Context
-	taggers *taggers.TaggerSet
-	tags    StructTags
+	generators *generators.GeneratorSet
+	tags       StructTags
 }
 
 func newTagExtactor(debug pgs.DebuggerCommon, ctx pgsgo.Context) *tagExtractor {
 	te := &tagExtractor{
 		DebuggerCommon: debug,
 		Context:        ctx,
-		taggers:        &taggers.TaggerSet{},
+		generators:     &generators.GeneratorSet{},
 	}
 	te.Visitor = pgs.PassThroughVisitor(te)
 
 	return te
 }
 
-func (te *tagExtractor) registerTagger(t taggers.Tagger) *tagExtractor {
-	te.taggers.Add(t)
+func (te *tagExtractor) registerGenerator(t generators.Generator) *tagExtractor {
+	te.generators.Add(t)
 	return te
 }
 
@@ -42,7 +42,7 @@ func (te *tagExtractor) VisitField(field pgs.Field) (pgs.Visitor, error) {
 	}
 
 	tags := structtag.Tags{}
-	for _, t := range te.taggers.GetTaggers() {
+	for _, t := range te.generators.GetGenerators() {
 		tag, err := t.GenerateTag(field)
 		te.CheckErr(err)
 		if tag == nil {

@@ -1,4 +1,4 @@
-package taggers
+package generators
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
 
-type Tagger interface {
+type Generator interface {
 	pgs.DebuggerCommon
 	pgsgo.Context
 
@@ -16,32 +16,32 @@ type Tagger interface {
 	GenerateTag(field pgs.Field) (*structtag.Tag, error)
 }
 
-type TaggerSet struct {
-	taggers []Tagger
+type GeneratorSet struct {
+	generators []Generator
 }
 
-func (ts *TaggerSet) GetTaggers() []Tagger {
-	return ts.taggers
+func (ts *GeneratorSet) GetGenerators() []Generator {
+	return ts.generators
 }
 
-func (ts *TaggerSet) Add(t Tagger) error {
+func (ts *GeneratorSet) Add(t Generator) error {
 	if t == nil {
-		return fmt.Errorf("tagger cannot be nil")
+		return fmt.Errorf("generator cannot be nil")
 	}
 	if t.GetName() == "" {
 		return fmt.Errorf("'name' cannot be empty")
 	}
 
 	added := false
-	for i, tg := range ts.taggers {
+	for i, tg := range ts.generators {
 		if tg != nil && tg.GetName() == t.GetName() {
 			added = true
-			ts.taggers[i] = t
+			ts.generators[i] = t
 		}
 	}
 
 	if !added {
-		ts.taggers = append(ts.taggers, t)
+		ts.generators = append(ts.generators, t)
 	}
 
 	return nil
