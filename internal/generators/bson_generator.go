@@ -1,26 +1,26 @@
-package taggers
+package generators
 
 import (
 	"fmt"
 
 	"github.com/fatih/structtag"
-	"github.com/timmonfette1/protago/internal/genproto/bson"
+	"github.com/timmonfette1/protago/internal/genproto/protago/bson/v1"
 	pgs "github.com/timmonfette1/protoc-gen-star/v2"
 	pgsgo "github.com/timmonfette1/protoc-gen-star/v2/lang/go"
 )
 
-type BsonTagger struct {
+type BsonGenerator struct {
 	pgs.DebuggerCommon
 	pgsgo.Context
 }
 
-var _ Tagger = (*BsonTagger)(nil)
+var _ Generator = (*BsonGenerator)(nil)
 
-func (bt *BsonTagger) GetName() string {
+func (bt *BsonGenerator) GetName() string {
 	return "BsonTagger"
 }
 
-func (bt *BsonTagger) GenerateTag(field pgs.Field) (*structtag.Tag, error) {
+func (bt *BsonGenerator) GenerateTag(field pgs.Field) (*structtag.Tag, error) {
 	bt.Debug(fmt.Sprintf("parsing 'bson' tags for field '%s'", field.Name().String()))
 
 	var bsonFieldOptions *bson.BsonFieldOptions

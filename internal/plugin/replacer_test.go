@@ -15,7 +15,7 @@ import (
 func TestReplaceTags(t *testing.T) {
 	fs := token.NewFileSet()
 
-	input, err := parser.ParseFile(fs, "./test_data/input.txt", nil, parser.ParseComments)
+	input, err := parser.ParseFile(fs, "../testdata/input.txt", nil, parser.ParseComments)
 	assert.NoError(t, err)
 
 	singleTags, err := structtag.Parse(`sql:"-,omitempty"`)
@@ -37,7 +37,7 @@ func TestReplaceTags(t *testing.T) {
 	err = printer.Fprint(&inputBytes, fs, input)
 	assert.NoError(t, err)
 
-	outputBytes, err := os.ReadFile("./test_data/output.txt")
+	outputBytes, err := os.ReadFile("../testdata/output.txt")
 	assert.NoError(t, err)
 	assert.Equal(t, outputBytes, inputBytes.Bytes())
 }

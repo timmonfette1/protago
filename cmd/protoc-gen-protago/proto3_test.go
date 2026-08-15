@@ -1,14 +1,20 @@
-package test
+// This is an integration test for the protoc plugin.
+// A proto3 syntax file is generated in the internal/testdata folder.
+// Part of that generation uses the compile protago plugin.
+// This test then uses that generated file to ensure the plugin worked.
+
+package main
 
 import (
 	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/timmonfette1/protago/internal/testdata"
 )
 
 func TestBsonTags(t *testing.T) {
-	b := TestBson{}
+	b := testdata.TestBson{}
 	te := reflect.TypeOf(&b).Elem()
 
 	id, ok := te.FieldByName("Id")
@@ -43,7 +49,7 @@ func TestBsonTags(t *testing.T) {
 }
 
 func TestValidateTags(t *testing.T) {
-	v := TestValidate{}
+	v := testdata.TestValidate{}
 	te := reflect.TypeOf(&v).Elem()
 
 	id, ok := te.FieldByName("Id")

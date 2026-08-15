@@ -3,7 +3,7 @@ plugins:
   - local:
       - go
       - run
-      - ../cmd/protoc-gen-protago
+      - ../../cmd/protoc-gen-protago
     out: .
     opt:
       - paths=source_relative
