@@ -1,5 +1,9 @@
 # protago
 
+> [!WARNING]
+>
+> protago has been archived in it's current state here and it's development is being moved into [gochain](https://github.com/timmonfette1/gochain). This repository will remain in it's current state for now while archived, but it will eventually be removed once it's fully migrated. Once migrated, it will be officially released as part of gochain.
+
 # PROTAGO IS STILL IN ACTIVE DEVELOPMENT.  THERE ARE NO OFFICIAL RELEASES YET AND SUPPORT/FUNCTIONALITY IS NOT GUARANTEED.  IT IS NOT RECOMMENDED THAT YOU USE THIS TOOLCHAIN UNTIL IT IS CONSIDERED STABLE AND RELEASED
 
 ## What Is It?
